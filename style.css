@@ -1,0 +1,927 @@
+/* ==========================
+   GLOBAL SETTINGS
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg-dark:#070B14;
+    --bg-card:#111827;
+    --orange:#F97316;
+    --orange-dark:#C2410C;
+    --chakra-blue:#38BDF8;
+    --white:#F8FAFC;
+    --gray:#94A3B8;
+
+    --shadow-orange:0 0 25px rgba(249,115,22,.35);
+    --shadow-blue:0 0 25px rgba(56,189,248,.25);
+}
+
+body{
+    background:var(--bg-dark);
+    color:var(--white);
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* ==========================
+   FUTURISTIC BACKGROUND
+========================== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+
+    background-size:50px 50px;
+
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+
+    background:radial-gradient(circle,
+    rgba(249,115,22,.12),
+    transparent 70%);
+
+    top:-150px;
+    right:-150px;
+
+    z-index:-1;
+}
+
+/* ==========================
+   NAVBAR
+========================== */
+
+.header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+
+    backdrop-filter:blur(15px);
+
+    background:rgba(7,11,20,.75);
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.navbar{
+    width:90%;
+    max-width:1300px;
+
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 0;
+}
+
+.logo{
+    text-decoration:none;
+
+    color:var(--white);
+
+    font-size:1.5rem;
+
+    font-family:'Orbitron',sans-serif;
+    font-weight:700;
+}
+
+.logo span{
+    color:var(--orange);
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+
+    list-style:none;
+}
+
+.nav-links a{
+    color:var(--white);
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--orange);
+}
+
+.menu-btn{
+    display:none;
+
+    background:none;
+    border:none;
+
+    color:white;
+
+    font-size:1.8rem;
+    cursor:pointer;
+}
+
+/* ==========================
+   SECTIONS
+========================== */
+
+.section{
+    width:90%;
+    max-width:1300px;
+
+    margin:auto;
+
+    padding:120px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title p{
+    color:var(--orange);
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.section-title h2{
+    font-size:3rem;
+    font-family:'Orbitron',sans-serif;
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.hero{
+    min-height:100vh;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+
+    gap:60px;
+}
+
+.tagline{
+    color:var(--orange);
+    letter-spacing:3px;
+    margin-bottom:20px;
+}
+
+.hero-content h1{
+    font-size:5rem;
+    font-family:'Orbitron',sans-serif;
+}
+
+.hero-content h2{
+    color:var(--chakra-blue);
+
+    margin:20px 0;
+}
+
+.hero-content p{
+    color:var(--gray);
+
+    line-height:1.8;
+}
+
+.hero-buttons{
+    margin-top:40px;
+
+    display:flex;
+    gap:20px;
+}
+
+.btn{
+    text-decoration:none;
+
+    padding:14px 30px;
+
+    border-radius:12px;
+
+    transition:.3s;
+}
+
+.primary-btn{
+    background:var(--orange);
+    color:white;
+
+    box-shadow:var(--shadow-orange);
+}
+
+.primary-btn:hover{
+    transform:translateY(-3px);
+}
+
+.secondary-btn{
+    border:1px solid var(--chakra-blue);
+    color:var(--chakra-blue);
+}
+
+.secondary-btn:hover{
+    background:var(--chakra-blue);
+    color:black;
+}
+
+.image-card{
+    border-radius:25px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:var(--shadow-orange);
+    position:relative;
+    z-index:10;
+    background:rgba(255,255,255,.03);
+backdrop-filter:blur(20px);
+}
+
+.image-card img{
+    width:100%;
+    display:block;
+}
+
+/* ==========================
+   CARDS
+========================== */
+
+.card{
+    background:rgba(255,255,255,.03);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+
+    border-color:rgba(249,115,22,.4);
+
+    box-shadow:var(--shadow-orange);
+}
+
+/* ==========================
+   ABOUT
+========================== */
+
+.about-container{
+    display:grid;
+    grid-template-columns:400px 1fr;
+    gap:40px;
+}
+
+.about-image img{
+    width:100%;
+    border-radius:20px;
+}
+
+.about-content h3{
+    margin-bottom:20px;
+    color:var(--orange);
+}
+
+.about-content p{
+    color:var(--gray);
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+/* ==========================
+   SKILLS
+========================== */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.skill-card h3{
+    color:var(--orange);
+    margin-bottom:15px;
+}
+
+/* ==========================
+   TIMELINE
+========================== */
+
+.timeline{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.timeline-item span{
+    color:var(--chakra-blue);
+}
+
+/* ==========================
+   PROJECTS
+========================== */
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.project-card img{
+    width:100%;
+    height:220px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+}
+
+.project-card h3{
+    color:var(--orange);
+}
+
+.project-card p{
+    color:var(--gray);
+    margin:15px 0;
+}
+
+.project-card span{
+    color:var(--chakra-blue);
+}
+
+/* ==========================
+   CONTACT
+========================== */
+
+.contact-container{
+    text-align:center;
+}
+
+.contact-links{
+    margin-top:30px;
+
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.contact-links a{
+    color:var(--chakra-blue);
+    text-decoration:none;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+    text-align:center;
+    padding:40px 20px;
+
+    border-top:1px solid rgba(255,255,255,.05);
+
+    color:var(--gray);
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:900px){
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .about-container{
+        grid-template-columns:1fr;
+    }
+
+    .hero-content h1{
+        font-size:3rem;
+    }
+
+    .section-title h2{
+        font-size:2.2rem;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+
+        top:100%;
+        left:0;
+
+        width:100%;
+
+        flex-direction:column;
+
+        background:#111827;
+
+        padding:20px;
+
+        display:none;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+}
+/* ==========================
+   SCROLL REVEAL ANIMATION
+========================== */
+
+.section-title,
+.hero-content,
+.hero-image,
+.card,
+.about-image{
+    opacity:0;
+    transform:translateY(35px);
+    transition:opacity .8s ease, transform .8s ease;
+}
+
+.section-title.show,
+.hero-content.show,
+.hero-image.show,
+.card.show,
+.about-image.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.nav-links a.active-link{
+    color:var(--orange);
+}
+
+
+/* ==================================
+   CHAKRA HERO EFFECTS
+================================== */
+
+.glow-name{
+    background:linear-gradient(
+        90deg,
+        #ffffff,
+        #F97316,
+        #38BDF8,
+        #ffffff
+    );
+
+    background-size:300%;
+
+    background-clip:text;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+    animation:chakraText 6s linear infinite;
+}
+
+@keyframes chakraText{
+    0%{
+        background-position:0%;
+    }
+
+    100%{
+        background-position:300%;
+    }
+}
+
+.hero-image{
+    position:relative;
+}
+
+.chakra-circle{
+    position:absolute;
+    border-radius:50%;
+
+    border:2px solid rgba(249,115,22,.3);
+
+    animation:chakraPulse 6s infinite;
+}
+
+.circle1{
+    width:300px;
+    height:300px;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+}
+
+.circle2{
+    width:420px;
+    height:420px;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    animation-delay:2s;
+}
+
+.circle3{
+    width:540px;
+    height:540px;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    animation-delay:4s;
+}
+
+@keyframes chakraPulse{
+
+    0%{
+        opacity:0;
+        transform:translate(-50%,-50%) scale(.7);
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+        transform:translate(-50%,-50%) scale(1.2);
+    }
+}
+
+/* ==========================
+   CHAKRA PARTICLES
+========================== */
+
+.chakra-particles{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.chakra-particles span{
+    position:absolute;
+    display:block;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#F97316;
+
+    opacity:.4;
+
+    box-shadow:0 0 20px #F97316;
+
+    animation:floatParticle linear infinite;
+}
+
+.chakra-particles span:nth-child(1){
+    left:10%;
+    animation-duration:14s;
+}
+
+.chakra-particles span:nth-child(2){
+    left:25%;
+    animation-duration:18s;
+}
+
+.chakra-particles span:nth-child(3){
+    left:45%;
+    animation-duration:16s;
+}
+
+.chakra-particles span:nth-child(4){
+    left:65%;
+    animation-duration:22s;
+}
+
+.chakra-particles span:nth-child(5){
+    left:80%;
+    animation-duration:15s;
+}
+
+.chakra-particles span:nth-child(6){
+    left:90%;
+    animation-duration:20s;
+}
+
+@keyframes floatParticle{
+
+    from{
+        transform:translateY(100vh);
+    }
+
+    to{
+        transform:translateY(-100px);
+    }
+}
+
+/* ==========================
+   CYBER SHINOBI STATS PANEL
+========================== */
+
+.shinobi-panel{
+    position:absolute;
+    z-index:20;
+
+    min-width:150px;
+
+    padding:16px 18px;
+
+    background:rgba(7,11,20,.82);
+    backdrop-filter:blur(16px);
+
+    border:1px solid rgba(249,115,22,.45);
+    border-radius:16px;
+
+    box-shadow:
+        0 0 20px rgba(249,115,22,.25),
+        inset 0 0 18px rgba(56,189,248,.06);
+
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+
+    animation:panelFloat 4s ease-in-out infinite;
+}
+
+.shinobi-panel::before{
+    content:"";
+    position:absolute;
+
+    width:35px;
+    height:2px;
+
+    background:var(--chakra-blue);
+
+    top:12px;
+    right:12px;
+
+    box-shadow:0 0 12px var(--chakra-blue);
+}
+
+.shinobi-panel span{
+    color:var(--gray);
+    font-size:.8rem;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.shinobi-panel strong{
+    color:var(--white);
+    font-family:'Orbitron',sans-serif;
+    font-size:1.2rem;
+}
+
+.panel-left{
+    top:20%;
+    left:-40px;
+}
+
+.panel-right{
+    top:32%;
+    right:-30px;
+    animation-delay:1s;
+}
+
+.panel-bottom{
+    bottom:10%;
+    left:50%;
+    transform:translateX(-50%);
+    animation-delay:2s;
+}
+
+@keyframes panelFloat{
+    0%,100%{
+        margin-top:0;
+    }
+
+    50%{
+        margin-top:-12px;
+    }
+}
+
+@media(max-width:900px){
+    .shinobi-panel{
+        position:relative;
+        inset:auto;
+        margin:15px auto;
+        width:90%;
+    }
+
+    .panel-bottom{
+        transform:none;
+    }
+}
+
+/* ==========================
+   PROJECT VIEW BUTTON
+========================== */
+
+.project-view-btn{
+    display:inline-block;
+
+    margin-top:22px;
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    background:rgba(249,115,22,.12);
+    border:1px solid rgba(249,115,22,.55);
+
+    color:var(--orange);
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.project-view-btn:hover{
+    background:var(--orange);
+    color:white;
+
+    box-shadow:var(--shadow-orange);
+
+    transform:translateY(-3px);
+}
+
+/* ==========================
+   PROJECT DETAIL PAGE
+========================== */
+
+.project-detail-page{
+    padding-top:80px;
+}
+
+.project-detail-hero{
+    min-height:85vh;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:50px;
+}
+
+.project-detail-content h1{
+    font-size:4rem;
+    font-family:'Orbitron',sans-serif;
+    margin-bottom:25px;
+}
+
+.project-detail-content p{
+    color:var(--gray);
+    line-height:1.8;
+}
+
+.project-detail-buttons{
+    margin-top:35px;
+
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.project-detail-image img{
+    width:100%;
+    height:460px;
+
+    object-fit:cover;
+}
+
+.project-info-card p{
+    color:var(--gray);
+    line-height:1.9;
+    font-size:1.05rem;
+}
+
+.ninja-gallery{
+    display:grid;
+    grid-template-columns:1.4fr .8fr;
+    gap:25px;
+}
+
+.ninja-gallery img,
+.proof-card img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    border-radius:14px;
+}
+
+.gallery-main{
+    min-height:500px;
+    padding:15px;
+}
+
+.gallery-side{
+    display:grid;
+    gap:25px;
+}
+
+.gallery-side .card{
+    min-height:235px;
+    padding:15px;
+}
+
+.proof-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.proof-card img{
+    height:220px;
+    margin-bottom:20px;
+}
+
+.proof-card h3{
+    color:var(--orange);
+}
+
+.proof-card p{
+    color:var(--gray);
+    margin-top:10px;
+}
+
+@media(max-width:900px){
+    .project-detail-hero,
+    .ninja-gallery{
+        grid-template-columns:1fr;
+    }
+
+    .project-detail-content h1{
+        font-size:2.6rem;
+    }
+
+    .project-detail-image img{
+        height:320px;
+    }
+}
+
+/* ==========================
+   NOT AVAILABLE PAGE
+========================== */
+
+.unavailable-page{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.unavailable-card{
+    max-width:700px;
+    text-align:center;
+}
+
+.unavailable-card h1{
+    font-family:'Orbitron',sans-serif;
+    font-size:3rem;
+    margin:20px 0;
+}
+
+.unavailable-card p{
+    color:var(--gray);
+    margin-bottom:30px;
+}
